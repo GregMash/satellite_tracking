@@ -29,6 +29,8 @@ function getLatLong() {
     } else {
         console.log("Input OK");
     }
+    mymap.panTo([latitude, longitude]);
+    var marker2 = L.marker([latitude, longitude]).addTo(mymap);
 };
 
 
