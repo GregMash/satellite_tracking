@@ -14,13 +14,13 @@
 //     var $ = require("jquery")(window);
 // });
 
-var jsdom = require('jsdom');
-const { JSDOM } = jsdom;
-const { window } = new JSDOM();
-const { document } = (new JSDOM('')).window;
-global.document = document;
+// var jsdom = require('jsdom');
+// const { JSDOM } = jsdom;
+// const { window } = new JSDOM();
+// const { document } = (new JSDOM('')).window;
+// global.document = document;
 
-var $ = jQuery = require('jquery')(window);
+// var $ = jQuery = require('jquery')(window);
 
 // https://www.n2yo.com/api/
 
@@ -39,15 +39,20 @@ function getAbove(observer_lat, observer_lon, observer_alt, search_radius, categ
         method: "GET"
     }).then(function (returnObj) {
         if (DEBUG) console.log(returnObj);
+        
     });
 
 }
-loc = {
-    lat: 32.253460,
-    lon: -110.911789,
-    alt: 743,
-    radius: 90,
-    category_id: 0
-}
 
-objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
+function buttonClick(){
+    loc = {
+        lat: 32.253460,
+        lon: -110.911789,
+        alt: 743,
+        radius: 90,
+        category_id: 26
+    }
+    objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
+    
+}
+$(document).on("click","#testbutton",buttonClick)
