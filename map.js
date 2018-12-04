@@ -9,3 +9,38 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 var marker = L.marker([32.2, -110.9]).addTo(mymap);
 
+
+
+$(document).on('click', '#lat-long-button', getLatLong);
+
+function getLatLong() {
+    event.preventDefault();
+    let latitude = $('#lat').val().trim();
+    let longitude = $('#long').val().trim();
+    if (isNaN(longitude) || longitude < -180 || longitude > 180) {
+        console.log("Input not valid");
+        console.log(longitude);
+    } else {
+        console.log("Input OK");
+    }
+    if (isNaN(latitude) || latitude < -90|| latitude > 90) {
+        console.log("Input not valid");
+        console.log(latitude);
+    } else {
+        console.log("Input OK");
+    }
+};
+
+
+
+    
+
+
+
+
+
+
+/*
+-180 - +180 longitude
+-90 - +90 latitude
+*/
