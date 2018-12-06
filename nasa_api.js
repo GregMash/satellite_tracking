@@ -12,14 +12,14 @@ function getAbove(observer_lat, observer_lon, observer_alt, search_radius, categ
         method: "GET"
     }).then(function (returnObj) {
         if (DEBUG) console.log(returnObj);
-        let satObjArray=returnObj.above;
+        let satObjArray = returnObj.above;
         // displaySatellite(satObjArray);
     });
 
 }
 
-function getCurrentSatPos(satid,observer_lat, observer_lon, observer_alt) {
-    seconds=1;
+function getCurrentSatPos(satid, observer_lat, observer_lon, observer_alt) {
+    seconds = 1;
     let urlAddon = `positions/${satid}/${observer_lat}/${observer_lon}/${observer_alt}/${seconds}&apiKey=${apiKey}`;
     let queryURL = `${satAPIbaseURL}/${urlAddon}`;
     if (DEBUG) console.log("queryURL: " + queryURL);
@@ -28,23 +28,23 @@ function getCurrentSatPos(satid,observer_lat, observer_lon, observer_alt) {
         method: "GET"
     }).then(function (returnObj) {
         if (DEBUG) console.log(returnObj);
-        let lat=returnObj.positions[0].satlatitute;
-        let lon=returnObj.positions[0].satlongitude;
+        let lat = returnObj.positions[0].satlatitute;
+        let lon = returnObj.positions[0].satlongitude;
 
         // displaySatellite(satObjArray);
     });
 
 }
 
-function buttonClick(){
+function buttonClick() {
     loc = {
         lat: 32.253460,
         lon: -110.911789,
         alt: 743,
-        radius: 90,
-        category_id: 26
+        radius: 180,
+        category_id: 28
     }
     objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
-    
+
 }
-$(document).on("click","#testbutton",buttonClick)
+$(document).on("click", "#testbutton", buttonClick)
