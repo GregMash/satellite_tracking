@@ -31,7 +31,7 @@ function getLatLong() {
     }
 
     //mymap.panTo([latitude, longitude]);
-    //var marker2 = L.marker([latitude, longitude]).addTo(mymap);
+    var marker2 = L.marker([latitude, longitude]).addTo(mymap);
 };
 
 function addSatellites(satellites) {
@@ -40,10 +40,22 @@ function addSatellites(satellites) {
     }
     markers = [];
     for (let i = 0; i < satellites.length; i++) {
-        console.log(satellites[i]);
+        // if (i<markers.length){
+        //     mymap.removeLayer(markers[i]);
+        // }
+        // console.log(satellites[i]);
         let marker = L.marker([satellites[i].satlat, satellites[i].satlng]).addTo(mymap);
         markers.push(marker);
+
+        marker.bindPopup(`<p>Name: ${satellites[i].satname}</p><p>Launch Date: ${satellites[i].launchDate}</p><p>Altitude: ${satellites[i].satalt} m</p>`).openPopup();
+        console.log(marker);
     }
+    // for (i;i<markers.length;i++){
+    //     mymap.removeLayer(markers[i]);
+
+    // }
+    
+    
 };
 
 
@@ -52,5 +64,18 @@ $(document).on('click', '#testbutton', addSatellites);
 
 
 
+/*
+grab data for lat and long within certain values
+set and get from storage
+
+get the popups to work
+
+
+
+
+console.log('hello');
+            console.log(satellites[i].satlat)
+           
+*/
 
 
