@@ -19,7 +19,7 @@ function getLatLong() {
     let longitude = $('#long').val().trim();
     if (isNaN(longitude) || longitude < -180 || longitude > 180) {
         console.log("Input not valid");
-        console.log(longitude); ``
+        console.log(longitude); 
     } else {
         console.log("Input OK");
     }
@@ -30,18 +30,16 @@ function getLatLong() {
         console.log("Input OK");
     }
 
-    //mymap.panTo([latitude, longitude]);
     var myIcon = L.icon({
-        iconUrl: 'https://png.pngtree.com/element_pic/00/16/07/16578997f327a81.jpg',
+        iconUrl: 'https://cdn0.iconfinder.com/data/icons/map-3/1024/location-512.png',
         iconSize: [30, 30],
-        iconAnchor: [22, 94],
-        popupAnchor: [-3, -76],
-        shadowUrl: 'my-icon-shadow.png',
-        shadowSize: [68, 95],
-        shadowAnchor: [22, 94]
+        iconAnchor: [15, 15],
+        popupAnchor: [15,15]
     });
-    L.marker([latitude, longitude], {icon: myIcon}).addTo(mymap);
-   
+    L.marker([latitude, longitude], {icon: myIcon, autoPanPadding: [0, 0]}).addTo(mymap)
+    mymap.panTo([latitude, longitude]);
+    //L.tooltip().bindTooltipAnchor("Selected Location").openTooltip();
+
 };
 
 function addSatellites(satellites) {
