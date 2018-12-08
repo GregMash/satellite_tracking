@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
@@ -32,170 +33,30 @@
         </div>
     </nav>
 
+    <nav class="navbar navbar-expand ml-auto bg-black mr-5 mb-3">
+        <span class="navbar-toggler-icon ml-auto"></span>
+        <div id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mr-3">
+                    <button type="button" class="btn btn-light" id="sort-by-name">Sort By Name</button>
+                </li>
+                <li class="nav-item mr-3">
+                    <button type="button" class="btn btn-light" id="sort-by-year">Sort By Launch Year</button>
+                </li>
+                <li class="nav-item mr-2">
+                    <button type="button" class="btn btn-light " id="sort-by-country">Sort By Country</button>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
     <section>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">GGSE 1</div>
-            <div class="card-body row">
 
-                <li class="card-text">International Designation: 1964-001B</li>
-                <li class="card-text">Launch Date: November 1, 1964</li>
-                <li class="card-text">Source: United States</li>
 
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">LES 1</div>
-            <div class="card-body row">
 
-                <li class="card-text">International Designation: 1965-008C</li>
-                <li class="card-text">Launch Date: February 11, 1965</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">GGSE 2</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1965-016B</li>
-                <li class="card-text">Launch Date: March 9, 1965</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">GGSE 3</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1965-016C</li>
-                <li class="card-text">Launch Date: March 9, 1965</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">LES 2</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1965-016C</li>
-                <li class="card-text">Launch Date: May 6, 1965</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">Asterix</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1965-096A</li>
-                <li class="card-text">Launch Date: November 26, 1965</li>
-                <li class="card-text">Source: France</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">ATS 1</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1966-110A</li>
-                <li class="card-text">Launch Date: December 7, 1966</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">GGSE 4</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1967-053C</li>
-                <li class="card-text">Launch Date: May 31, 1967</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">GGSE 5</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1967-053D</li>
-                <li class="card-text">Launch Date: May 31, 1967</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">ATS 3</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1967-111A</li>
-                <li class="card-text">Launch Date: November 5, 1967</li>
-                <li class="card-text">Source: United States</li>
-                <!-- <li class="card-text"> Fun Fact: Took the first color photo of the Earth.</li> -->
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">TOPO 1</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1970-025B</li>
-                <li class="card-text">Launch Date: April 8, 1970</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">TANSEI 1</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1971-011A</li>
-                <li class="card-text">Launch Date: February 16, 1971</li>
-                <li class="card-text">Source: Japan</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">PROSPERO (BLACK ARROW)</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1971-093A</li>
-                <li class="card-text">Launch Date: October 28, 1971</li>
-                <li class="card-text">Source: United Kingdom</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">OPS 7518 (NTS 1)</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1974-054A</li>
-                <li class="card-text">Launch Date: July 14, 1971</li>
-                <li class="card-text">Source: United States</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">KIKU 1 (ETS 1)</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1975-082A</li>
-                <li class="card-text">Launch Date: September 9, 1975</li>
-                <li class="card-text">Source: Japan</li>
-
-            </div>
-        </div>
-        <div class="card text-white bg-dark m-2 float-left" style="max-width: 20rem;">
-            <div class="card-header">TANSEI 3 (MS-T3)</div>
-            <div class="card-body row">
-
-                <li class="card-text">International Designation: 1975-082A</li>
-                <li class="card-text">Launch Date: September 9, 1975</li>
-                <li class="card-text">Source: Japan</li>
-
-            </div>
-        </div>
     </section>
 
-
+    <script src="info.js"></script>
 </body>
 
 </html>
