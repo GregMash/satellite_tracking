@@ -1,5 +1,5 @@
-var mymap = L.map('mapid').setView([39.8283, -98.5795], 4);
-var markers = [];
+let mymap = L.map('mapid').setView([39.8283, -98.5795], 4);
+let markers = [];
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -19,11 +19,11 @@ function getLatLong() {
     let longitude = $('#long').val().trim();
     if (isNaN(longitude) || longitude < -180 || longitude > 180) {
         console.log("Input not valid");
-        console.log(longitude);``
+        console.log(longitude); ``
     } else {
         console.log("Input OK");
     }
-    if (isNaN(latitude) || latitude < -90|| latitude > 90) {
+    if (isNaN(latitude) || latitude < -90 || latitude > 90) {
         console.log("Input not valid");
         console.log(latitude);
     } else {
@@ -31,7 +31,17 @@ function getLatLong() {
     }
 
     //mymap.panTo([latitude, longitude]);
-    var marker2 = L.marker([latitude, longitude]).addTo(mymap);
+    var myIcon = L.icon({
+        iconUrl: 'https://png.pngtree.com/element_pic/00/16/07/16578997f327a81.jpg',
+        iconSize: [30, 30],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76],
+        shadowUrl: 'my-icon-shadow.png',
+        shadowSize: [68, 95],
+        shadowAnchor: [22, 94]
+    });
+    L.marker([latitude, longitude], {icon: myIcon}).addTo(mymap);
+   
 };
 
 function addSatellites(satellites) {
@@ -54,8 +64,8 @@ function addSatellites(satellites) {
     //     mymap.removeLayer(markers[i]);
 
     // }
-    
-    
+
+
 };
 
 
