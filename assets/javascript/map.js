@@ -31,7 +31,9 @@ function getLatLong() {
         });
         L.marker([latitude, longitude], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)
         mymap.panTo([latitude, longitude]);
-    }   
+    }
+    $('#lat').val("");
+    $('#long').val("");
 };
 
 //this function will add the satellites to the map based on their current position and bind their respective popus to them
@@ -48,14 +50,14 @@ function addSatellites(satellites) {
             iconAnchor: [15, 15],
             popupAnchor: [15, 15]
         });
-        let marker = L.marker([satellites[i].satlat, satellites[i].satlng], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)      
+        let marker = L.marker([satellites[i].satlat, satellites[i].satlng], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)
         markers.push(marker);
         marker.bindPopup(`<p>Name: ${satellites[i].satname}</p><p>Launch Date: ${satellites[i].launchDate}</p><p>Altitude: ${satellites[i].satalt} m</p>`).openPopup();
     }
 };
 
 // this function will user input based on the city they entered and set a bullseye to the lat and lng of the city
- function cityGrab () {
+function cityGrab() {
     let input = $("#inputCity").val().trim();
     console.log(input);
     const queryURL = "http://api.geonames.org/searchJSON?style=full&maxRows=12&name_startsWith=" + input + "&username=agoldsher";
@@ -70,8 +72,10 @@ function addSatellites(satellites) {
             popupAnchor: [15, 15]
         });
         L.marker([response.geonames[0].lat, response.geonames[0].lng], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)
-        mymap.panTo([latitude, longitude]);
+        mymap.panTo([response.geonames[0].lat, response.geonames[0].lng]);
     });
+
+    $("#inputCity").val("");
 };
 
 //this block of functions handles the ajax API call to n2yo to obtain the satellite current positions and popup info
@@ -118,8 +122,8 @@ function buttonClick() {
         lat: 32.253460,
         lon: -110.911789,
         alt: 743,//meters
-        radius: 90, //degrees
-        category_id: 26
+        radius: 180, //degrees
+        category_id: 28
     }
     objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
 };
@@ -133,4 +137,4 @@ window.onload = buttonClick;
 $(document).on('click', '#lat-long-button', getLatLong);
 
 //when the button is clicked, execute the cityGrab function
-$(document).on("click", 'button', cityGrab);
+$(document).on("click", '#city-button', cityGrab);
