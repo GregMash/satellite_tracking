@@ -1,5 +1,37 @@
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyA4BGdaQAQNzg71DD4Bg3b3O31IA9fl7m4",
+  authDomain: "satellite-tracker-ee856.firebaseapp.com",
+  databaseURL: "https://satellite-tracker-ee856.firebaseio.com",
+  projectId: "satellite-tracker-ee856",
+  storageBucket: "satellite-tracker-ee856.appspot.com",
+  messagingSenderId: "986398204382"
+};
+var defaultApp = firebase.initializeApp(config);
+var db = firebase.firestore();
+
+
+// Disable deprecated features
+db.settings({
+  timestampsInSnapshots: true
+});
+
+// Initialize the default app
+// var defaultApp = firebase.initializeApp(defaultAppConfig);
+
+console.log(defaultApp.name);  // "[DEFAULT]"
+console.log(defaultApp)
+
+// You can retrieve services via the defaultApp variable...
+// var defaultStorage = defaultApp.storage();
+// var defaultDatabase = defaultApp.database();
+
+// ... or you can use the equivalent shorthand notation
+// defaultStorage = firebase.storage();
+// defaultDatabase = firebase.firestore();
+
 var uiConfig = {
   callbacks: {
     signInSuccessWithAuthResult: function (authResult, redirectUrl) {
