@@ -25,9 +25,6 @@
 </head>
 
 <body>
-    <h1>Welcome to My Awesome App</h1>
-    <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
 
     <h1 class="text-light text-center">Satellite Tracking</h1>
 
@@ -58,36 +55,50 @@
         </div>
     </div>
 
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script> -->
-
-
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
-
     <!-- Firebase App is always required and must be first -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
 
     <!-- Add additional services that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-auth.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-database.js"></script> -->
-    <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-firestore.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js"></script> -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-functions.js"></script> -->
-
-    <!-- Comment out (or don't include) services that you don't want to use -->
-    <!-- <script src="https://www.gstatic.com/firebasejs/5.6.0/firebase-storage.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-messaging.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-functions.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-storage.js"></script> -->
 
     <script>
-        
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA4BGdaQAQNzg71DD4Bg3b3O31IA9fl7m4",
+            authDomain: "satellite-tracker-ee856.firebaseapp.com",
+            databaseURL: "https://satellite-tracker-ee856.firebaseio.com",
+            projectId: "satellite-tracker-ee856",
+            storageBucket: "satellite-tracker-ee856.appspot.com",
+            messagingSenderId: "986398204382"
+        };
+        // var config = {
+        //     apiKey: "AIzaSyBoC0JAp8R5W_ZpGGons3pnEwP3XDLu21M",
+        //     authDomain: "sattrack-d7432.firebaseapp.com",
+        //     databaseURL: "https://sattrack-d7432.firebaseio.com",
+        //     projectId: "sattrack-d7432",
+        //     storageBucket: "sattrack-d7432.appspot.com",
+        //     messagingSenderId: "562660650380"
+        // };
+        firebase.initializeApp(config);
+        const firestore = firebase.firestore();
+        const settings = {/* your settings... */ timestampsInSnapshots: true };
+        firestore.settings(settings);
     </script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
 
+    <!-- Bootstrap Scripts -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script src="assets/js/nasa_api.js"></script>
+
+    <!-- My Scripts -->
+    <!-- <script src="assets/js/nasa_api.js"></script> -->
     <script src="assets/js/firebase.js"></script>
 
 </body>

@@ -47,4 +47,4 @@ function buttonClick(){
     objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
     
 }
-$(document).on("click","#testbutton",buttonClick)
+$(document).on("click","#testbutton",buttonClick);
