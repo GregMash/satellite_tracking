@@ -1,0 +1,29 @@
+ site [label="Main Page", shape="rectangle", URL=""];
+    infopage l="Info Page", shape="rectangle", URL=""];
+    latlon [label="Lat/Lng"];
+    userinputcity [label="User Input City"];
+       /[label="G;
+    
+   tionshipss-> latl;
+auserinputcity -> geonames[label="AJAX"];
+    geonames latln labl=L[>ot/Lng"]
+    latlon -> lle;
+   leaflet -> site af// userinput -> site[label=".63"]
+    n2yo -> leaflet [label="Plot Location"];
+    site -> n2yo [label="AJAX"];
+    // n2yo -> leaflet [label="locations"];
+    // n2yo -> leaflet;
+    userinputcity -> geonames[label="AJAX"];
+    geonames-> latlon [label="Lat/Lng"]
+    latlon -> leaflet;
+base"];
+    fireyo - site[label="leaflet -> site [label="Shows on page"];
+    firebaslet -> site [label="Shows on page"];
+    firebasen;
+
+infopage [label="Render on Page"];
+seriatlolatlon -> l
+.63"]
+    n2yo -> leaflet [label="Plot Location"];
+    site -> n2yo [label="AJAX"];
+    // n2yo];2yo    // n2yo 
