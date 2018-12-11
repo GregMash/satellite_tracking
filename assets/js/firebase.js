@@ -25,7 +25,7 @@ function updateSatInfo() {
   let observer_lon = 0; //degrees
   let observer_alt = 0; // meters above sea level
   let search_radius = 180; // degrees. 0 is right above, 90 is horizon, 180 is everything
-  let category_id = 26; // 0 for everything, 26 educational, other categories not listed here
+  let category_id = 28; // 0 for everything, 26 educational, 28 engineering, other categories not listed here
   let urlAddon = `above/${observer_lat}/${observer_lon}/${observer_alt}/${search_radius}/${category_id}&apiKey=${apiKey}`;
   let queryURL = `${satAPIbaseURL}/${urlAddon}`;
   if (DEBUG) console.log("queryURL: " + queryURL);
