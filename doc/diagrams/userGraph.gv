@@ -1,15 +1,14 @@
-digraph G {
-    splines="TRUE";
-
-    /* Entities */
-    site [label="Main Page", shape="rectangle", URL=""];
-    infopage [label="Info Page", shape="rectangle", URL=""];
+ site [label="Main Page", shape="rectangle", URL=""];
+    infopage l="Info Page", shape="rectangle", URL=""];
     latlon [label="Lat/Lng"];
     userinputcity [label="User Input City"];
-    geonames [label="Geonames"];
+       /[label="G;
     
-    /* Relationships */
-    // userinput -> site[label=".63"]
+   tionshipss-> latl;
+auserinputcity -> geonames[label="AJAX"];
+    geonames latln labl=L[>ot/Lng"]
+    latlon -> lle;
+   leaflet -> site af// userinput -> site[label=".63"]
     n2yo -> leaflet [label="Plot Location"];
     site -> n2yo [label="AJAX"];
     // n2yo -> leaflet [label="locations"];
@@ -17,25 +16,14 @@ digraph G {
     userinputcity -> geonames[label="AJAX"];
     geonames-> latlon [label="Lat/Lng"]
     latlon -> leaflet;
-    leaflet -> site [label="Shows on page"];
-    firebase -> infopage [label="Render on Page"];
-    userinputlatlon -> latlon;
+base"];
+    fireyo - site[label="leaflet -> site [label="Shows on page"];
+    firebaslet -> site [label="Shows on page"];
+    firebasen;
 
-
-    /* Ranks */
-    { rank=same; infopage,site; };
-    // { rank=max; geonames,userinputcity,n2yo,latlon,leaflet,userinputlatlon,firebase; };
-}
-
-// digraph G {
-//     splines="FALSE";
-
-//     /* Entities */
-//     shortName [label="shortName", shape="|square,rectangle,circle,ellipse,triangle,plaintext,point,diamond,pentagon,hexagon,septagon,octagon,egg,trapezium,parallelogram,house,doublecircle,doubleoctagon,tripleoctagon,invtriangle,invtrapezium,invhouse,Mdiamond,Msquare,Mcircle,none,note,tab,folder,box3d|", URL="http://en.wikipedia.org/wiki/John de Fries"]
-    
-//     /* Relationships */
-//     F1 -> shortName[label=".63"]
-
-//     /* Ranks */
-//     { rank=|same,min,max,# max is bottom|; shortName; };
-// }
+infopage [label="Render on Page"];
+seriatlolatlon -> l
+.63"]
+    n2yo -> leaflet [label="Plot Location"];
+    site -> n2yo [label="AJAX"];
+    // n2yo];2yo    // n2yo 
