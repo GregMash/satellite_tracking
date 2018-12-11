@@ -1,0 +1,41 @@
+digraph G {
+    splines="TRUE";
+
+    /* Entities */
+    site [label="Main Page", shape="rectangle", URL=""];
+    infopage [label="Info Page", shape="rectangle", URL=""];
+    latlon [label="Lat/Lng"];
+    userinputcity [label="User Input City"];
+    geonames [label="Geonames"];
+    
+    /* Relationships */
+    // userinput -> site[label=".63"]
+    n2yo -> leaflet [label="Plot Location"];
+    site -> n2yo [label="AJAX"];
+    // n2yo -> leaflet [label="locations"];
+    // n2yo -> leaflet;
+    userinputcity -> geonames[label="AJAX"];
+    geonames-> latlon [label="Lat/Lng"]
+    latlon -> leaflet;
+    leaflet -> site [label="Shows on page"];
+    firebase -> infopage [label="Render on Page"];
+    userinputlatlon -> latlon;
+
+
+    /* Ranks */
+    { rank=same; infopage,site; };
+    // { rank=max; geonames,userinputcity,n2yo,latlon,leaflet,userinputlatlon,firebase; };
+}
+
+// digraph G {
+//     splines="FALSE";
+
+//     /* Entities */
+//     shortName [label="shortName", shape="|square,rectangle,circle,ellipse,triangle,plaintext,point,diamond,pentagon,hexagon,septagon,octagon,egg,trapezium,parallelogram,house,doublecircle,doubleoctagon,tripleoctagon,invtriangle,invtrapezium,invhouse,Mdiamond,Msquare,Mcircle,none,note,tab,folder,box3d|", URL="http://en.wikipedia.org/wiki/John de Fries"]
+    
+//     /* Relationships */
+//     F1 -> shortName[label=".63"]
+
+//     /* Ranks */
+//     { rank=|same,min,max,# max is bottom|; shortName; };
+// }
