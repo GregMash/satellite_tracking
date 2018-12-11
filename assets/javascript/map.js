@@ -1,6 +1,9 @@
 //===================================================== Map ======================================================================
 
 let mymap = L.map('mapid').setView([39.8283, -98.5795], 4);
+
+let coords = [39.8283, -98.5795];
+
 let markers = [];
 
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
@@ -50,9 +53,10 @@ function addSatellites(satellites) {
             iconAnchor: [15, 15],
             popupAnchor: [15, 15]
         });
-        let marker = L.marker([satellites[i].satlat, satellites[i].satlng], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)
+        let marker = L.marker([satellites[i].satlat, satellites[i].satlng], { icon: myIcon}).addTo(mymap)
         markers.push(marker);
         marker.bindPopup(`<p>Name: ${satellites[i].satname}</p><p>Launch Date: ${satellites[i].launchDate}</p><p>Altitude: ${satellites[i].satalt} m</p>`).openPopup();
+        mymap.panTo(coords);
     }
 };
 
@@ -70,7 +74,7 @@ function cityGrab() {
             iconAnchor: [15, 15],
             popupAnchor: [15, 15]
         });
-        L.marker([response.geonames[0].lat, response.geonames[0].lng], { icon: myIcon}).addTo(mymap);
+        L.marker([response.geonames[0].lat, response.geonames[0].lng], {icon: myIcon}).addTo(mymap);
         mymap.panTo([response.geonames[0].lat, response.geonames[0].lng]);
     });
 
@@ -83,8 +87,8 @@ let DEBUG = true;
 satAPIbaseURL = "https://www.n2yo.com/rest/v1/satellite";
 apiKey = "YF4AW4-297NVD-YXBUEQ-3X95";
 
-function getAbove(observer_lat, observer_lon, observer_alt, search_radius, category_id) {
-    let urlAddon = `above/${observer_lat}/${observer_lon}/${observer_alt}/${search_radius}/${category_id}&apiKey=${apiKey}`;
+function getAbove() {
+    let urlAddon = `above/32/-110/743/180/28&apiKey=${apiKey}`;
     let queryURL = `${satAPIbaseURL}/${urlAddon}`;
     if (DEBUG) console.log("queryURL: " + queryURL);
     $.ajax({
@@ -93,7 +97,7 @@ function getAbove(observer_lat, observer_lon, observer_alt, search_radius, categ
     }).then(function (returnObj) {
         if (DEBUG) console.log(returnObj);
         let satObjArray = returnObj.above;
-        addSatellites(returnObj.above)
+        addSatellites(returnObj.above);
     });
 
 };
@@ -116,21 +120,16 @@ function getCurrentSatPos(satid, observer_lat, observer_lon, observer_alt) {
 
 };
 
-function buttonClick() {
-    loc = {
-        lat: 32.253460,
-        lon: -110.911789,
-        alt: 743,//meters
-        radius: 180, //degrees
-        category_id: 28
-    }
-    objsAbove = getAbove(loc.lat, loc.lon, loc.alt, loc.radius, loc.category_id);
-};
+
+/*
+function
+*/
 
 //========================================= Main Process ======================================================================
 
 //on load put the satellites on the map
-window.onload = buttonClick;
+$(document).ready(getAbove);
+setInterval(getAbove, 60000);
 
 //when the lat lng button is clicked, execute the getLatLong function
 $(document).on('click', '#lat-long-button', getLatLong);
