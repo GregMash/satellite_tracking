@@ -121,9 +121,6 @@ function getCurrentSatPos(satid, observer_lat, observer_lon, observer_alt) {
 };
 
 
-/*
-function
-*/
 
 //========================================= Main Process ======================================================================
 
