@@ -55,6 +55,39 @@
 
 
     </section>
+    
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-app.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-auth.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-database.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.0/firebase-firestore.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyA4BGdaQAQNzg71DD4Bg3b3O31IA9fl7m4",
+            authDomain: "satellite-tracker-ee856.firebaseapp.com",
+            databaseURL: "https://satellite-tracker-ee856.firebaseio.com",
+            projectId: "satellite-tracker-ee856",
+            storageBucket: "satellite-tracker-ee856.appspot.com",
+            messagingSenderId: "986398204382"
+        };
+        // var config = {
+        //     apiKey: "AIzaSyBoC0JAp8R5W_ZpGGons3pnEwP3XDLu21M",
+        //     authDomain: "sattrack-d7432.firebaseapp.com",
+        //     databaseURL: "https://sattrack-d7432.firebaseio.com",
+        //     projectId: "sattrack-d7432",
+        //     storageBucket: "sattrack-d7432.appspot.com",
+        //     messagingSenderId: "562660650380"
+        // };
+        firebase.initializeApp(config);
+        const firestore = firebase.firestore();
+        const settings = {/* your settings... */ timestampsInSnapshots: true };
+        firestore.settings(settings);
+
+        const db = firebase.firestore();
+    </script>
 
     <script src="assets/javascript/info.js"></script>
 </body>
