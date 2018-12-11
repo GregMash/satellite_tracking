@@ -59,7 +59,6 @@ function addSatellites(satellites) {
 // this function will user input based on the city they entered and set a bullseye to the lat and lng of the city
 function cityGrab() {
     let input = $("#inputCity").val().trim();
-    console.log(input);
     const queryURL = "http://api.geonames.org/searchJSON?style=full&maxRows=12&name_startsWith=" + input + "&username=agoldsher";
     $.ajax({
         url: queryURL,
@@ -71,7 +70,7 @@ function cityGrab() {
             iconAnchor: [15, 15],
             popupAnchor: [15, 15]
         });
-        L.marker([response.geonames[0].lat, response.geonames[0].lng], { icon: myIcon, autoPanPadding: [0, 0] }).addTo(mymap)
+        L.marker([response.geonames[0].lat, response.geonames[0].lng], { icon: myIcon}).addTo(mymap);
         mymap.panTo([response.geonames[0].lat, response.geonames[0].lng]);
     });
 
