@@ -63,7 +63,7 @@ function addSatellites(satellites) {
 // this function will user input based on the city they entered and set a bullseye to the lat and lng of the city
 function cityGrab() {
     let input = $("#inputCity").val().trim();
-    const queryURL = "http://api.geonames.org/searchJSON?style=full&maxRows=12&name_startsWith=" + input + "&username=agoldsher";
+    const queryURL = "https://secure.geonames.org/searchJSON?style=full&maxRows=12&name_startsWith=" + input + "&username=agoldsher";
     $.ajax({
         url: queryURL,
         method: "GET"
